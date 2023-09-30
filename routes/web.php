@@ -19,4 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/main', [MainController::class, '__invoke']);
+Route::get('/main', [MainController::class, '__invoke'])->name("main.index");

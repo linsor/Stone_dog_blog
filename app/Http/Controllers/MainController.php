@@ -11,6 +11,6 @@ use App\Models\Post;
 class MainController extends BaseController
 {
     public function __invoke() {
-        dd(111111);
+        return view('main');
     }
 }

@@ -5,6 +5,8 @@
    @include('layouts.header')
    @include('layouts.body')
 
+   @yield('content')
+
    @include('layouts.footer')
 </body>
 

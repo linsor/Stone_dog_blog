@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('/main', [MainController::class, '__invoke'])->name("main.index");
+Route::get('/', [MainController::class, '__invoke'])->name("main.index");

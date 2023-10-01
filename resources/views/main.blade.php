@@ -1,1 +1,0 @@
-{{route('main.index')}}

@@ -13,11 +13,8 @@ class IndexTestController extends BaseController
 {
     public function __invoke() {
         
-        $id = 2;
-        $users = User::find($id);
-        $accessories = $users->accessories;
-        $accessory = Accessories::find($id);
+        $users = User::all();
 
-        return view('Test.index', compact('users'), compact('accessory'));
+        return view('Test.index', compact('users'));
     }
 }

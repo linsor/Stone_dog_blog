@@ -5,6 +5,9 @@
         <div>
             <a href="{{route('test.create')}}" class="btn btn-primary mb-3">Create</a>
         </div>
-            <p>{{$users->id}}. {{$users->name}} </p>
+        @foreach ($users as $user)
+            <div><a href="{{route('test.show', $user->id)}}"> {{$user->id}}. {{$user->name}}</a></div>
+        @endforeach
+
     </div>
 @endsection

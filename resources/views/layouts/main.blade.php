@@ -3,8 +3,8 @@
 @include('layouts.head')
 <body>
    @include('layouts.header')
-   @include('layouts.body')
-
+ {{--  @include('layouts.body')  --}}
+    @yield('content')
    @include('layouts.footer')
 </body>
 

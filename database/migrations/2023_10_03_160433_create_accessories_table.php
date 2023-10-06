@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('accessories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('UseNickID')->nullable();
-            $table->unsignedBigInteger('ProcID')->nullable();
-            $table->unsignedBigInteger('VCardID')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('processor_id')->nullable();
+            $table->unsignedBigInteger('video_card_id')->nullable();
             $table->string('RAM', 15)->nullable();
 
             $table->timestamps();

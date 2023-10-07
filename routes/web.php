@@ -2,9 +2,10 @@
 
 
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\Test\CreateTestController;
+use App\Http\Controllers\Test\EditTestController;
 use App\Http\Controllers\Test\IndexTestController;
 use App\Http\Controllers\Test\ShowTestController;
+use App\Http\Controllers\Test\UpdateTestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,10 +27,8 @@ Route::get('/', [MainController::class, '__invoke'])->name("main.index");
 
 Route::group(['namespace' => 'Test'], function () {
     Route::get('/test', [IndexTestController::class, '__invoke'])->name('test.index');
-    Route::get('/test/create', [CreateTestController::class, '__invoke'])->name('test.create');
-  //  Route::post('/posts', [StoreTestController::class, '__invoke'])->name('post.store');
     Route::get('/test/{accessories}', [ShowTestController::class, '__invoke'])->name('test.show');
-   // Route::get('/posts/{post}/edit', [EditController::class, '__invoke'])->name('post.edit');
-   // Route::patch('/posts/{post}', [UpdateController::class, '__invoke'])->name('post.update');
+    Route::get('/test/{post}/edit', [EditTestController::class, '__invoke'])->name('test.edit');
+  //  Route::patch('/test/{post}', [UpdateTestController::class, '__invoke'])->name('test.update');
    // Route::delete('/posts/{post}', [DeleteController::class, '__invoke'])->name('post.delete');
 });

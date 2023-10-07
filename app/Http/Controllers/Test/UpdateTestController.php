@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers\Test;
 
+use App\Http\Controllers\Controller;
 use App\Models\Accessories;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Post;
+use PhpParser\Node\Stmt\Return_;
 
-class CreateTestController extends BaseController
+class UpdateTestController extends Controller
 {
-    public function __invoke() {
-        
+    public function __invoke($id) {
 
-        $accessory = Accessories::all();
-
-        return view('Test.create', compact('accessory'));
+        return view('Test.edit', compact('user','accessories'));
+       
     }
 }
+ 

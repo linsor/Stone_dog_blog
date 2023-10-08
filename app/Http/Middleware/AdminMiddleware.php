@@ -17,7 +17,7 @@ class AdminMiddleware
     {
 
         if (auth()->user()->role !== 'admin') {
-            return redirect()->view('test.index');
+            return redirect()->route('main.index');
         };
         return $next($request);
     }

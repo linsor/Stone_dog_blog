@@ -17,11 +17,7 @@ class UpdateTestController extends BaseController
 
         $data = $request->validated();
 
-        $accessories->update([
-            'processor_id' => $data['processor'],
-            'video_card_id' => $data['videocard'],
-        ]);
-        $user->update($data);
+        $this->service->update($user, $data, $accessories);
         return  redirect()->route('test.index',);
        
     }

@@ -12,14 +12,33 @@
       <div class="mb-3">
         <label for="UserAvatar" class="form-label">UserAvatar</label>
         <textarea type="text" name="UserAvatar" class="form-control"
-         id="UserAvatar" placeholder="UserAvatar">{{$post->UserAvatar}}</textarea>
+         id="UserAvatar" placeholder="UserAvatar">{{$user->UserAvatar}}</textarea>
       </div>
       <div class="mb-3">
         <label for="role" class="form-label">role</label>
         <input type="text" name="role" class="form-control"
          id="role" placeholder="role" value="{{$user->role}}">
       </div>
-      
+        <div class="form-group">
+          <Label form="processor">Processor</Label>
+          <select class="form-control" id = "processor" aria-label="Default select example" name="processor">
+            <option selected>Open this select menu</option>
+            @foreach ($processors as $processor)
+              <option value="{{$processor->id}}">{{$processor->NameProcessor}}</option>
+            @endforeach
+
+          </select>
+        </div>
+        <div class="form-group">
+          <Label form="videocard">Video Card</Label>
+          <select class="form-control" id = "videocard" aria-label="Default select example" name="videocard">
+            <option selected>Open this select menu</option>
+            @foreach ($videocards as $videocard)
+              <option value="{{$videocard->id}}">{{$videocard->NameVideoCard}}</option>
+            @endforeach
+
+          </select>
+        </div>
         
         </select>
       </div>
@@ -27,7 +46,7 @@
     </form>
     <div>
       <div>
-        <a href="{{route('user.index')}}" class="btn btn-primary mb-3">Back</a>
+        <a href="{{route('test.index')}}" class="btn btn-primary mb-3">Back</a>
       </div>
     </div>
   </div>

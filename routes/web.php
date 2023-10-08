@@ -25,10 +25,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, '__invoke'])->name("main.index");
 
-Route::group(['namespace' => 'Test'], function () {
+Route::group(['namespace' => 'Test', 'middleware' => 'admin'], function () {
     Route::get('/test', [IndexTestController::class, '__invoke'])->name('test.index');
     Route::get('/test/{accessories}', [ShowTestController::class, '__invoke'])->name('test.show');
     Route::get('/test/{post}/edit', [EditTestController::class, '__invoke'])->name('test.edit');
-  //  Route::patch('/test/{post}', [UpdateTestController::class, '__invoke'])->name('test.update');
+    Route::patch('/test/{post}', [UpdateTestController::class, '__invoke'])->name('test.update');
    // Route::delete('/posts/{post}', [DeleteController::class, '__invoke'])->name('post.delete');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

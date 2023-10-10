@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Http\Controllers\MainController;
+use App\Http\Controllers\IndexMainController;
 use App\Http\Controllers\Test\EditTestController;
 use App\Http\Controllers\Test\IndexTestController;
 use App\Http\Controllers\Test\ShowTestController;
@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', [MainController::class, '__invoke'])->name("main.index");
+Route::get('/', [IndexMainController::class, '__invoke'])->name("main.index");
 
 Route::group(['namespace' => 'Test', 'middleware' => 'admin'], function () {
     Route::get('/test', [IndexTestController::class, '__invoke'])->name('test.index');

@@ -1,7 +1,8 @@
 <?php
 
 
-use App\Http\Controllers\IndexMainController;
+use App\Http\Controllers\Main\IndexMainController;
+use App\Http\Controllers\Main\ShowMainController;
 use App\Http\Controllers\Test\EditTestController;
 use App\Http\Controllers\Test\IndexTestController;
 use App\Http\Controllers\Test\ShowTestController;
@@ -24,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', [IndexMainController::class, '__invoke'])->name("main.index");
+Route::get('/main/{posts}', [ShowMainController::class, '__invoke'])->name('main.show');
 
 Route::group(['namespace' => 'Test', 'middleware' => 'admin'], function () {
     Route::get('/test', [IndexTestController::class, '__invoke'])->name('test.index');

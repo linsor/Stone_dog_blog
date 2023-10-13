@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Main;
 
 
-use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -13,8 +12,9 @@ class IndexMainController extends BaseController
 {
     public function __invoke() {
 
-        $users = User::all();
+        $posts = Post::all();
 
-        return view('main.index', compact('users'));
+        return view('main.index', compact('posts'));
+        
     }
 }

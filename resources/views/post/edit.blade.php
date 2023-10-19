@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div>
-            <form action="{{ route('main.update', $post->id) }}" method="post">
+            <form action="{{ route('post.update', $post->id) }}" method="post">
                 @csrf
                 @method('patch')
                 <div class="mb-3">
@@ -20,24 +20,24 @@
                         value="{{ $post->PostImage }}">
                 </div>
                 <div class="form-group">
-                  <Label form="NameGame">NameGame</Label>
-                  <select class="form-control" id = "processor" aria-label="Default select example" name="NameGame">
-                      <option selected>Open this select menu</option>
-                      @foreach ($games as $game)
-                          <option value="{{ $game->id }}">{{ $game->GameName }}</option>
-                      @endforeach
+                    <Label form="NameGame">NameGame</Label>
+                    <select class="form-control" id = "processor" aria-label="Default select example" name="NameGame">
+                        @foreach ($games as $game)
+                            <option {{ $game->id == $post->NameGame ? 'selected' : '' }} value="{{ $game->id }}">
+                                {{ $game->GameName }}</option>
+                        @endforeach
                     </select>
-              </div>
-                
+                </div>
+
                 <button type="submit" class="btn btn-primary mb-3">Edit</button>
             </form>
             <div>
                 <div>
-                    <a href="{{ route('test.index') }}" class="btn btn-primary mb-3">Back</a>
+                    <a href="{{ route('post.index') }}" class="btn btn-primary mb-3">Back</a>
                 </div>
             </div>
         </div>
-      </div>
-    @endsection
+    </div>
+@endsection
 
-    {{-- --}}
+{{-- --}}

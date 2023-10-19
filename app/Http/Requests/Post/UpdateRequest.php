@@ -22,13 +22,13 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'NamePost' => 'string',
-            'Content' => 'string',
+            'NamePost' => 'required|string',
+            'Content' => 'required|string',
             'date' => date('Y-m-d H:i:s'),
-            'like' => '1',
+            'like' => 'integer',
             'PostImage' => 'string',
             'NameGame' => 'string',
-            'Author' => 'string'
+            'Author' => 'integer'
         ];
     }
 }

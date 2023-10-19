@@ -10,11 +10,12 @@ use App\Models\Post;
 
 class ShowPostController extends BaseController
 {
-    public function __invoke($id) {
+    public function __invoke($id)
+    {
         $post = Post::find($id);
 
-        return view('Main.show', compact('post'));
-       
+        return view('post.show', compact('post'));
+
     }
 }
- 
+

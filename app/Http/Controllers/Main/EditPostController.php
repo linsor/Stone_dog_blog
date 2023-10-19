@@ -9,12 +9,13 @@ use App\Models\Post;
 
 class EditPostController extends BaseController
 {
-    public function __invoke($id) {
+    public function __invoke($id)
+    {
         $post = Post::find($id);
         $games = Game::all();
 
-        return view('Main.edit', compact('post','games'));
-       
+        return view('post.edit', compact('post', 'games'));
+
     }
 }
- 
+

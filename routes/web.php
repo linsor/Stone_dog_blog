@@ -1,8 +1,10 @@
 <?php
 
 
+use App\Http\Controllers\Main\EditPostController;
 use App\Http\Controllers\Main\IndexMainController;
-use App\Http\Controllers\Main\ShowMainController;
+use App\Http\Controllers\Main\ShowPostController;
+use App\Http\Controllers\Main\UpdatePostController;
 use App\Http\Controllers\Test\EditTestController;
 use App\Http\Controllers\Test\IndexTestController;
 use App\Http\Controllers\Test\ShowTestController;
@@ -24,8 +26,12 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', [IndexMainController::class, '__invoke'])->name("main.index");
-Route::get('/main/{posts}', [ShowMainController::class, '__invoke'])->name('main.show');
+Route::group(['namespace' => 'Main', 'middleware' => 'admin'], function () {
+    Route::get('/', [IndexMainController::class, '__invoke'])->name("main.index");
+    Route::get('/main/{posts}', [ShowPostController::class, '__invoke'])->name('main.show');
+    Route::get('/main/{posts}/edit', [EditPostController::class, '__invoke'])->name('main.edit');
+    Route::patch('/main/{post}', [UpdatePostController::class, '__invoke'])->name('main.update');
+});
 
 Route::group(['namespace' => 'Test', 'middleware' => 'admin'], function () {
     Route::get('/test', [IndexTestController::class, '__invoke'])->name('test.index');

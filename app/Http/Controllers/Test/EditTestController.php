@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Test;
 
-use App\Http\Controllers\BaseController;
+use App\Http\Controllers\Test\BaseController;
 use App\Models\Accessories;
 use App\Models\Processor;
 use App\Models\User;

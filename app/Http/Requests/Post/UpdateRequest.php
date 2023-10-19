@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,14 +22,13 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=> 'nullable|string',
-            'UserAvatar' => 'nullable|string',
-            'role' => 'string',
-            'email' => 'nullable|string',
-            'password' => 'nullable|string',
-            'processor' => 'nullable|string',
-            'videocard' => 'nullable|string',
-
+            'NamePost' => 'string',
+            'Content' => 'string',
+            'date' => date('Y-m-d H:i:s'),
+            'like' => '1',
+            'PostImage' => 'string',
+            'NameGame' => 'string',
+            'Author' => 'string'
         ];
     }
 }

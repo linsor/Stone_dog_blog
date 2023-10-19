@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Main;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Routing\Controller as BaseController;
+use App\Http\Controllers\Main\BaseController;
 use App\Models\Post;
 
 class IndexMainController extends BaseController

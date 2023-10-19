@@ -18,9 +18,9 @@ class AdminMiddleware
 
         //Временно закоментировал для удобства тестирования проекта
         
-       /* if (auth()->user()->role !== 'admin') {
+        if (auth()->user()->role !== 'admin') {
             return redirect()->route('main.index');
-        }; */
+        }; 
         
         return $next($request);
     }

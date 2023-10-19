@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Http\Controllers\Main;
+use App\Http\Controllers\Main\BaseController;
+use App\Http\Requests\Post\UpdateRequest;
+use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
+
+class UpdatePostController extends BaseController
+{
+    public function __invoke(UpdateRequest $request, $id) {
+
+        $post = Post::find($id);
+        
+        $data = [
+            'date' => date('Y-m-d H:i:s'),
+            'Author' =>auth()->user()->id
+        ];
+
+        
+        $data += $request->validated();
+        
+        $post->update($data);
+        return  redirect()->route('main.index',);
+       
+    }
+}
+ 

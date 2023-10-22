@@ -29,14 +29,17 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::group(['namespace' => 'Main'], function () {
-    Route::get('/', [IndexPostController::class, '__invoke'])->name("post.index");
+Route::group(['namespace' => 'Main', 'middleware' => 'admin'], function () {
     Route::get('/post/create', [CreatePostController::class, '__invoke'])->name('post.create');
     Route::post('/post', [StorePostController::class, '__invoke'])->name('post.store');
-    Route::get('/post/{post}', [ShowPostController::class, '__invoke'])->name('post.show');
     Route::get('/post/{post}/edit', [EditPostController::class, '__invoke'])->name('post.edit');
     Route::patch('/post/{post}', [UpdatePostController::class, '__invoke'])->name('post.update');
     Route::delete('/post/{post}', [DeletePostController::class, '__invoke'])->name('post.delete');
+});
+
+Route::group(['namespace' => 'Main'], function () {
+    Route::get('/', [IndexPostController::class, '__invoke'])->name("post.index");
+    Route::get('/post/{post}', [ShowPostController::class, '__invoke'])->name('post.show');
 
 });
 

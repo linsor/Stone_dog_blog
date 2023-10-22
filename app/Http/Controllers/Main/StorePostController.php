@@ -11,9 +11,10 @@ class StorePostController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {
+        $dataTime = date('Y-m-d H:i:s');
 
         $data = [
-            'date' => date('Y-m-d H:i:s'),
+            'date' => $dataTime,
             'Author' => Auth::user()->id,
         ];
 

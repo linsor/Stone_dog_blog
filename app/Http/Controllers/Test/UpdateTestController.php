@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Test;
-use App\Http\Controllers\BaseController;
-use App\Http\Requests\UpdateRequest;
+
+use App\Http\Controllers\Test\BaseController;
+use App\Http\Requests\User\UpdateRequest;
 use App\Models\Accessories;
 use App\Models\User;
 

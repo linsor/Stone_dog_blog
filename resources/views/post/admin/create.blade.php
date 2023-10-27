@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.admin')
 @section('content')
     <div class="container">
         <div>
@@ -40,7 +40,7 @@
             </form>
             <div>
                 <div>
-                    <a href="{{ route('post.index') }}" class="btn btn-primary mb-3">Back</a>
+                    <a href="{{ route('admin.post.index') }}" class="btn btn-primary mb-3">Back</a>
                 </div>
             </div>
         </div>

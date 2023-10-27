@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Main;
+namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\Main\BaseController;
@@ -13,7 +13,7 @@ class DeletePostController extends BaseController
     {
 
         $post->delete();
-        return redirect()->route('post.index');
+        return redirect()->route('admin.post.index');
     }
 }
 

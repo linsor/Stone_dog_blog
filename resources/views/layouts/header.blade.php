@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="">Лого</a>
-{{--    <img src="resources/images/stone_dog.jpg" alt="Лого">--}}
+    <div>
+        <img src="{{asset('images\post\Logo.png')}}" alt="ЛОГО" class="logo" width="60" height="60"> 
+    </div>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

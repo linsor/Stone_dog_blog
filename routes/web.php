@@ -45,7 +45,7 @@ Route::group(['namespace' => 'Main'], function () {
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function () {
-    Route::group([], function () {
+    Route::group(['middleware' => 'admin'], function () {
         Route::get('/create', [AdminCreatePostController::class, '__invoke'])->name('admin.post.create');
         Route::get('/{post}/edit', [AdminEditPostController::class, '__invoke'])->name('admin.post.edit');
         Route::get('/', [AdminIndexPostController::class, '__invoke'])->name("admin.post.index");

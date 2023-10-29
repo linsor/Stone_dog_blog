@@ -8,7 +8,6 @@
                 <i class="nav-icon fas fa-calendar-alt"></i>
                 <p>
                     Create
-                    <span class="badge badge-info right">0</span>
                 </p>
             </a>
         </li>
@@ -17,7 +16,7 @@
             <a href="{{route('admin.post.index')}}" class="nav-link">
                 <i class="nav-icon fas fa-calendar-alt"></i>
                 <p>
-                    Edit
+                    My Post
                     <span class="badge badge-info right"></span>
                 </p>
             </a>

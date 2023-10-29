@@ -1,3 +1,5 @@
-<div class="footer fixed-bottom mt-4">
-    <p>&copy; 2023 Название вашего сайта</p>
-</div>
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">Stone_DOG</span>
+  </div>
+</footer>

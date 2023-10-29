@@ -1,5 +1,5 @@
-<footer class="bg-light text-center text-lg-start">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0);">
-      Stone DOG
-    </div>
-  </footer>
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <span class="text-muted">Stone_DOG</span>
+  </div>
+</footer>

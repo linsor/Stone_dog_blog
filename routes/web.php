@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DeletePostController;
 use App\Http\Controllers\Admin\Post\AdminCreatePostController;
 use App\Http\Controllers\Admin\Post\AdminEditPostController;
 use App\Http\Controllers\admin\Post\AdminIndexPostController;
+use App\Http\Controllers\Admin\Post\AdminShowPostController;
 use App\Http\Controllers\Admin\StorePostController;
 use App\Http\Controllers\Admin\UpdatePostController;
 use App\Http\Controllers\Main\CreatePostController;
@@ -53,6 +54,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function () {
         Route::post('/post', [StorePostController::class, '__invoke'])->name('post.store');
         Route::get('/post/{post}/edit', [EditPostController::class, '__invoke'])->name('post.edit');
         Route::patch('/post/{post}', [UpdatePostController::class, '__invoke'])->name('post.update');
+        Route::get('/{post}', [AdminShowPostController::class, '__invoke'])->name('admin.post.show');
     });
 });
 

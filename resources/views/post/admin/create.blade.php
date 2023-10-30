@@ -12,9 +12,9 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <label for="Content" class="form-label">Content</label>
-                    <textarea type="text" name="Content" class="form-control" id="Content" placeholder="Content">{{ old('Content') }}</textarea>
+
+                <div class="form-group">
+                    <textarea id="summernote" name="Content"></textarea>
                     @error('Content')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror

@@ -5,8 +5,18 @@
             <img src="{{ asset($post->PostImage) }} " style="max-width: 100px">
         </div>
         <h5>{{ $post->NamePost }}</h5>
-        <p>{{ $post->Content }}
-        <p>{{ $post->NameGame }} </p>
+
+        {!! $post->Content !!}
+
+        <small class="text-body-secondary">
+            @foreach ($games as $game)
+                @if ($post->NameGame == $game->id)
+                    {{ $game->GameName }}
+                @else
+                @endif
+            @endforeach
+        </small>
+
 
 
         <div>

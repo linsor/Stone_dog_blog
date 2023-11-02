@@ -13,7 +13,7 @@
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $post->NamePost }}</h5>
-                                    <p class="card-text">{{ substr($post->Content, 0, 50) . '...' }}</p>
+                                    <p class="card-text">{!! substr($post->Content, 0, 50) . '...' !!}</p>
                                     <p class="card-text">
                                         <small class="text-body-secondary">
                                             @foreach ($games as $game)
@@ -25,21 +25,25 @@
                                         </small>
                                     </p>
                                     <div class="btn-group row ">
-                                        <button href="{{ route('admin.post.edit', $post->id) }}" type="button"
-                                            class="btn btn-primary row gx-3">
-                                            Edit
-                                        </button>
+                                        <div class="ml-3">
+                                            <form action="{{ route('post.delete', $post->id) }}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="border-0 bg-dark ">
+                                                    <i class="fas fa-trash text-danger" role="button"></i>
+                                                </button>
+                                            </form>
+                                        </div>
 
-                                        <form action="{{ route('post.delete', $post->id) }}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                            <input type="submit" value="Delete" class="btn btn-primary">
-                                        </form>
+                                        <div class="ml-1 ">
+                                            <form action="{{ route('admin.post.edit', $post->id) }}" method="get">
+                                                @csrf
+                                                <button type="submit" class="border-0 bg-dark ">
+                                                    <i class="fas fa-pen"></i>
+                                                </button>
+                                            </form>
+                                        </div>
                                     </div>
-
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -48,3 +52,10 @@
         </div>
     </div>
 @endsection
+
+
+{{--                                         <div>
+                                            <a href="{{ route('admin.post.edit', $post->id) }}" class="btn btn-primary row mx-0 mt-2">
+                                                Edit
+                                            </a>
+                                        </div> --}}

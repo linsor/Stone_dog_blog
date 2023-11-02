@@ -27,8 +27,8 @@
             </form>
         </div>
         <div>
-            <button href="{{ route('admin.post.edit', $post->id) }}" type="button" class="btn btn-primary row mx-0 mt-2 ">
+            <a href="{{ route('admin.post.edit', $post->id) }}" class="btn btn-primary row mx-0 mt-2">
                 Edit
-            </button>
+            </a>
         </div>
     @endsection

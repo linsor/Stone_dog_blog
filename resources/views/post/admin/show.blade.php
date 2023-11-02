@@ -5,8 +5,18 @@
             <img src="{{ asset($post->PostImage) }} " style="max-width: 100px">
         </div>
         <h5>{{ $post->NamePost }}</h5>
-        <p>{{ $post->Content }}
-        <p>{{ $post->NameGame }} </p>
+
+        {!! $post->Content !!}
+
+        <small class="text-body-secondary">
+            @foreach ($games as $game)
+                @if ($post->NameGame == $game->id)
+                    {{ $game->GameName }}
+                @else
+                @endif
+            @endforeach
+        </small>
+
 
 
         <div>
@@ -17,8 +27,8 @@
             </form>
         </div>
         <div>
-            <button href="{{ route('admin.post.edit', $post->id) }}" type="button" class="btn btn-primary row mx-0 mt-2 ">
+            <a href="{{ route('admin.post.edit', $post->id) }}" class="btn btn-primary row mx-0 mt-2">
                 Edit
-            </button>
+            </a>
         </div>
     @endsection

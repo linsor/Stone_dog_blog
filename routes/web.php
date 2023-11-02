@@ -52,7 +52,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function () {
         Route::get('/', [AdminIndexPostController::class, '__invoke'])->name("admin.post.index");
         Route::delete('/post/{post}', [DeletePostController::class, '__invoke'])->name('post.delete');
         Route::post('/post', [StorePostController::class, '__invoke'])->name('post.store');
-        Route::get('/post/{post}/edit', [EditPostController::class, '__invoke'])->name('post.edit');
         Route::patch('/post/{post}', [UpdatePostController::class, '__invoke'])->name('post.update');
         Route::get('/{post}', [AdminShowPostController::class, '__invoke'])->name('admin.post.show');
     });

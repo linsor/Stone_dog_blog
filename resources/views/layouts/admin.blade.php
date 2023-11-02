@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{{asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback')}}">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}} ">
+  <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}} ">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}} ">
   <!-- Theme style -->
@@ -266,7 +267,23 @@
 <script src="{{asset('plugins/raphael/raphael.min.js')}}"></script>
 <script src="{{asset('plugins/jquery-mapael/jquery.mapael.min.js')}}"></script>
 <script src="{{asset('plugins/jquery-mapael/maps/usa_states.min.js')}}"></script>
+<script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- ChartJS -->
 <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
+
+<script>
+  $(document).ready(function() {
+  $('#summernote').summernote({
+    toolbar: [
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    ['font', ['strikethrough', 'superscript', 'subscript']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['height', ['height']]
+  ]
+  });
+});
+</script>
 </body>
 </html>

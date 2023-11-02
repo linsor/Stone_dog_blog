@@ -10,9 +10,8 @@
                     <input type="text" name="NamePost" class="form-control" id="NamePost" placeholder="NamePost"
                         value="{{ $post->NamePost }}">
                 </div>
-                <div class="mb-3">
-                    <label for="Content" class="form-label">Content</label>
-                    <textarea type="text" name="Content" class="form-control" id="Content" placeholder="Content">{{ $post->Content }}</textarea>
+                <div class="form-group">
+                    <textarea id="summernote" name="Content">{{$post->Content}}</textarea>
                 </div>
                 <div class="mb-3">
                     <label for="PostImage" class="form-label">PostImage</label>

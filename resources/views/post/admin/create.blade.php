@@ -19,14 +19,21 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <label for="PostImage" class="form-label">PostImage</label>
-                    <input value="{{ old('PostImage') }}" type="text" name="PostImage" class="form-control"
-                        id="PostImage" placeholder="PostImage">
-                    @error('PostImage')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+
+
+                <div class="form-group w-50">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name = 'main_image'>
+                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Upload</span>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="NameGame">NameGame</label>
                     <select class="form-control" id="NameGame" name="NameGame" aria-label="Default select example">
@@ -47,4 +54,12 @@
     </div>
 @endsection
 
-{{-- --}}
+{{--                 <div class="mb-3">
+                    <label for="PostImage" class="form-label">PostImage</label>
+                    <input value="{{ old('PostImage') }}" type="text" name="PostImage" class="form-control"
+                        id="PostImage" placeholder="PostImage">
+                    @error('PostImage')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+--}}

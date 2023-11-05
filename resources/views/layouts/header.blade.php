@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div>
-        <img src="{{ asset('images\post\Logo.png') }}" alt="ЛОГО" class="logo" width="60" height="60">
+        <img src="{{ asset('storage/images/logo/logo.png') }}" alt="ЛОГО" class="logo" width="60" height="60">
     </div>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"

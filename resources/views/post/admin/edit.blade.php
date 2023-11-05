@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div>
-            <form action="{{ route('post.update', $post->id) }}" method="post">
+            <form action="{{ route('post.update', $post->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('patch')
                 <div class="mb-3">
@@ -10,14 +10,25 @@
                     <input type="text" name="NamePost" class="form-control" id="NamePost" placeholder="NamePost"
                         value="{{ $post->NamePost }}">
                 </div>
+
                 <div class="form-group">
-                    <textarea id="summernote" name="Content">{{$post->Content}}</textarea>
+                    <textarea id="summernote" name="Content">{{ $post->Content }}</textarea>
                 </div>
-                <div class="mb-3">
-                    <label for="PostImage" class="form-label">PostImage</label>
-                    <input type="text" name="PostImage" class="form-control" id="PostImage" placeholder="PostImage"
-                        value="{{ $post->PostImage }}">
+
+                <div class="form-group w-50">
+                    <div>
+                        <img src="{{ asset('storage/' . $post->PostImage) }}" class="img-fluid rounded-start" width="30%"
+                            height="30%" alt="...">
+                    </div>
+                    <label for="exampleInputFile">Загрузка изображения</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name = 'PostImage'>
+                            <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="form-group">
                     <Label form="NameGame">NameGame</Label>
                     <select class="form-control" id = "processor" aria-label="Default select example" name="NameGame">

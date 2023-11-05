@@ -6,6 +6,7 @@ use App\Http\Controllers\Main\BaseController;
 use App\Http\Requests\Post\UpdateRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UpdatePostController extends BaseController
 {
@@ -18,8 +19,9 @@ class UpdatePostController extends BaseController
             'date' => date('Y-m-d H:i:s'),
         ];
 
-
         $data += $request->validated();
+
+        $data['PostImage'] = Storage::disk('public')->put('images/post', $data['PostImage']);
 
         $post->update($data);
         return redirect()->route('admin.post.index');

@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div>
-            <form action="{{ route('post.store') }}" method="post">
+            <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="NamePost" class="form-label">NamePost</label>
@@ -19,14 +19,18 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <label for="PostImage" class="form-label">PostImage</label>
-                    <input value="{{ old('PostImage') }}" type="text" name="PostImage" class="form-control"
-                        id="PostImage" placeholder="PostImage">
-                    @error('PostImage')
-                        <p class="text-danger">{{ $message }}</p>
-                    @enderror
+
+
+                <div class="form-group w-50">
+                    <label for="exampleInputFile">Загрузка изображения</label>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name = 'PostImage'>
+                            <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="NameGame">NameGame</label>
                     <select class="form-control" id="NameGame" name="NameGame" aria-label="Default select example">
@@ -47,4 +51,12 @@
     </div>
 @endsection
 
-{{-- --}}
+{{--                 <div class="mb-3">
+                    <label for="PostImage" class="form-label">PostImage</label>
+                    <input value="{{ old('PostImage') }}" type="text" name="PostImage" class="form-control"
+                        id="PostImage" placeholder="PostImage">
+                    @error('PostImage')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+--}}

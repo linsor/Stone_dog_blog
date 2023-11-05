@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
             'Content' => 'required|string',
             'date' => date('Y-m-d H:i:s'),
             'like' => 'integer',
-            'PostImage' => 'string',
+            'PostImage' => 'file',
             'NameGame' => 'string',
             'Author' => 'integer'
         ];

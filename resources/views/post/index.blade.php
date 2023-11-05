@@ -8,7 +8,7 @@
                     <a href="{{ route('post.show', $post->id) }}">
                         <div class="row g-0 md-3">
                             <div class="col-md-4">
-                                <img src="{{ asset($post->PostImage) }}" class="img-fluid rounded-start" alt="...">
+                                <img src="{{$post->PostImage}}" class="img-fluid rounded-start" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">

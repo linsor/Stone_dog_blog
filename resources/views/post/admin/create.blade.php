@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div>
-            <form action="{{ route('post.store') }}" method="post">
+            <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data" >
                 @csrf
                 <div class="mb-3">
                     <label for="NamePost" class="form-label">NamePost</label>
@@ -25,7 +25,7 @@
                     <label for="exampleInputFile">File input</label>
                     <div class="input-group">
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name = 'main_image'>
+                            <input type="file" class="custom-file-input" name = 'PostImage'>
                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                         </div>
                         <div class="input-group-append">

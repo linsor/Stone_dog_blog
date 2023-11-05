@@ -6,6 +6,7 @@ use App\Http\Controllers\Main\BaseController;
 use App\Http\Requests\Post\StoreRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class StorePostController extends BaseController
 {
@@ -20,7 +21,8 @@ class StorePostController extends BaseController
 
 
         $data += $request->validated();
-        Post::create($data);
+        $data['PostImage'] = Storage::put('/images/post', $data['PostImage']);
+        Post::Create($data);
         return redirect()->route('admin.post.index');
 
     }

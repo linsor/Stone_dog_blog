@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div>
-            <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data" >
+            <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                     <label for="NamePost" class="form-label">NamePost</label>
@@ -22,11 +22,11 @@
 
 
                 <div class="form-group w-50">
-                    <label for="exampleInputFile">File input</label>
+                    <label for="exampleInputFile">Загрузка изображения</label>
                     <div class="input-group">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" name = 'PostImage'>
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            <label class="custom-file-label" for="exampleInputFile">Выберите файл</label>
                         </div>
                     </div>
                 </div>

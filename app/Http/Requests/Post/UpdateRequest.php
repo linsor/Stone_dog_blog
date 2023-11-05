@@ -26,9 +26,10 @@ class UpdateRequest extends FormRequest
             'Content' => 'required|string',
             'date' => date('Y-m-d H:i:s'),
             'like' => 'integer',
-            'PostImage' => 'string',
+            'PostImage' => 'nullable|file',
             'NameGame' => 'string',
             'Author' => 'integer'
         ];
+
     }
 }

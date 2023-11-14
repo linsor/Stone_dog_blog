@@ -21,6 +21,9 @@ class UpdatePostController extends BaseController
 
         $data += $request->validated();
 
+        $tags = $data['tags'];
+        unset($data['tags']);
+
         if ($request->hasFile('PostImage')) {
 
             $data['PostImage'] = Storage::disk('public')->put('images/post', $data['PostImage']);
@@ -28,6 +31,8 @@ class UpdatePostController extends BaseController
 
 
         $post->update($data);
+        $post->tags()->sync($tags);
+
         return redirect()->route('admin.post.index');
 
     }

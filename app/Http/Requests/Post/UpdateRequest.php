@@ -29,7 +29,8 @@ class UpdateRequest extends FormRequest
             'PostImage' => 'nullable|file',
             'NameGame' => 'string',
             'Author' => 'integer',
-            'category_id' => 'integer'
+            'category_id' => 'integer',
+            'tags' => ''
         ];
 
     }

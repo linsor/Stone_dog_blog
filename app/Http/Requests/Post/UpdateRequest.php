@@ -28,7 +28,8 @@ class UpdateRequest extends FormRequest
             'like' => 'integer',
             'PostImage' => 'nullable|file',
             'NameGame' => 'string',
-            'Author' => 'integer'
+            'Author' => 'integer',
+            'category_id' => 'integer'
         ];
 
     }

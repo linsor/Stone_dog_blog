@@ -21,8 +21,13 @@ class StorePostController extends BaseController
 
 
         $data += $request->validated();
-        $data['PostImage'] = Storage::disk('public')->put('images/post', $data['PostImage']);
+
+        if ($request->hasFile('PostImage')) {
+
+            $data['PostImage'] = Storage::disk('public')->put('images/post', $data['PostImage']);
+        }
         Post::Create($data);
+        
         return redirect()->route('admin.post.index');
 
     }

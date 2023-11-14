@@ -13,7 +13,7 @@ class UpdatePostController extends BaseController
     public function __invoke(UpdateRequest $request, $id)
     {
 
-        $post = Post::find($id);
+        $post = Post::findOrFail($id);
 
         $data = [
             'date' => date('Y-m-d H:i:s'),
@@ -21,7 +21,11 @@ class UpdatePostController extends BaseController
 
         $data += $request->validated();
 
-        $data['PostImage'] = Storage::disk('public')->put('images/post', $data['PostImage']);
+        if ($request->hasFile('PostImage')) {
+
+            $data['PostImage'] = Storage::disk('public')->put('images/post', $data['PostImage']);
+        }
+
 
         $post->update($data);
         return redirect()->route('admin.post.index');

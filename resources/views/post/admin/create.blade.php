@@ -40,6 +40,15 @@
                     </select>
                 </div>
 
+                <div class="mb-3">
+                    <label for="category">Категории</label>
+                    <select class="form-control w-50" id="category" name="category_id">
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <button type="submit" class="btn btn-primary mb-3">Create</button>
             </form>
             <div>

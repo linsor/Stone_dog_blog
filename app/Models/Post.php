@@ -13,13 +13,21 @@ class Post extends Model
 
     protected $guarded = false;
 
-    public function games () {
+    public function games()
+    {
         return $this->belongsTo(Game::class);
     }
 
-    public function category () {
-    
+    public function category()
+    {
+
         return $this->belongsTo(Category::class, "category_id", "id");
+    }
+
+    public function tags()
+    {
+
+        return $this->belongsToMany(Tag::class);
     }
 
 }

@@ -49,6 +49,15 @@
                     </select>
                 </div>
 
+                <div class="form-group">
+                    <label for="tabs">Выберите тэги</label>
+                    <select multiple class="form-control" id="tabs" name="tags[]">
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <button type="submit" class="btn btn-primary mb-3">Create</button>
             </form>
             <div>

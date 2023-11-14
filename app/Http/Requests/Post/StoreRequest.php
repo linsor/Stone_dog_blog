@@ -28,7 +28,8 @@ class StoreRequest extends FormRequest
             'like' => 'integer',
             'PostImage' => 'file',
             'NameGame' => 'string',
-            'Author' => 'integer'
+            'Author' => 'integer',
+            'category_id' => 'integer'
         ];
     }
 }

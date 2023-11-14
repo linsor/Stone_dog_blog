@@ -43,10 +43,9 @@
                     <label for="category">Категории</label>
                     <select class="form-control w-50" id="category" name="category_id">
                         @foreach ($categories as $category)
-                            <option {{ old('category_id') == $category->id ? 'selected' : 'Выберите категорию игры...' }}
+                            <option {{ $post->category_id == $category->id ? 'selected' : 'Выберите категорию игры...' }}
                                 value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
-
                     </select>
                 </div>
 

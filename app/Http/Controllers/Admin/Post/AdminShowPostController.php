@@ -15,8 +15,9 @@ class AdminShowPostController extends Controller
     {
         $post = Post::find($id);
         $games = Game::all();
+        $tags = $post->tags;
 
-        return view('post.admin.show', compact('post', 'games'));
+        return view('post.admin.show', compact('post', 'games', 'tags'));
 
     }
 }

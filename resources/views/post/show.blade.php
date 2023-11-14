@@ -6,6 +6,30 @@
         </div>
         <h5>{{ $post->NamePost }}</h5>
         {!! $post->Content !!}
-        <p>{{ $post->NameGame }} </p>
+
+        <div>
+            <small class="text-body-secondary">
+                @foreach ($games as $game)
+                    @if ($post->NameGame == $game->id)
+                        {{ $game->GameName }}
+                    @else
+                    @endif
+                @endforeach
+
+            </small>
+        </div>
+
+        <div>
+            <small class="text-body-secondary">
+                @foreach ($tags as $tag)
+                    <span>{{ $tag->name }}</span>
+
+                    @if (!$loop->last)
+                        ,
+                    @endif
+                @endforeach
+            </small>
+        </div>
+
     </div>
 @endsection

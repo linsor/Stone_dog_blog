@@ -1,13 +1,14 @@
 <?php
 
 
-use App\Http\Controllers\Admin\DeletePostController;
+use App\Http\Controllers\Admin\Users\AdminIndexUserController;
+use App\Http\Controllers\Admin\Post\DeletePostController;
 use App\Http\Controllers\Admin\Post\AdminCreatePostController;
 use App\Http\Controllers\Admin\Post\AdminEditPostController;
 use App\Http\Controllers\admin\Post\AdminIndexPostController;
 use App\Http\Controllers\Admin\Post\AdminShowPostController;
-use App\Http\Controllers\Admin\StorePostController;
-use App\Http\Controllers\Admin\UpdatePostController;
+use App\Http\Controllers\Admin\Post\StorePostController;
+use App\Http\Controllers\Admin\Post\UpdatePostController;
 use App\Http\Controllers\Main\CreatePostController;
 use App\Http\Controllers\Main\EditPostController;
 use App\Http\Controllers\Main\IndexPostController;
@@ -47,6 +48,9 @@ Route::group(['namespace' => 'Main'], function () {
 
 Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function () {
     Route::group(['middleware' => 'admin'], function () {
+        
+        Route::get('/user', [AdminIndexUserController::class, '__invoke'])->name("admin.user.index");
+
         Route::get('/create', [AdminCreatePostController::class, '__invoke'])->name('admin.post.create');
         Route::get('/{post}/edit', [AdminEditPostController::class, '__invoke'])->name('admin.post.edit');
         Route::get('/', [AdminIndexPostController::class, '__invoke'])->name("admin.post.index");
@@ -54,6 +58,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => '/admin'], function () {
         Route::post('/post', [StorePostController::class, '__invoke'])->name('post.store');
         Route::patch('/post/{post}', [UpdatePostController::class, '__invoke'])->name('post.update');
         Route::get('/{post}', [AdminShowPostController::class, '__invoke'])->name('admin.post.show');
+        
     });
 });
 

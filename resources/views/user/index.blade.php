@@ -18,15 +18,7 @@
                         <tr>
                             <th scope="row">{{$user->id}}</th>
                             <td>{{$user->name}}</td>
-                            <td>
-                                <select class="form-control w-50" id="role" name="role">
-                                    @foreach ($roles as $role)
-                                        <option value="{{ $role }}" {{ $user->role == old('role', $role) ? 'selected' : '' }}>
-                                            {{ $role }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </td>
+                            <td>{{$user->role}}</td>
                             <td>
                                 <div class="btn-group row ">
                                     <div class="ml-3">

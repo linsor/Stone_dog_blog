@@ -16,13 +16,28 @@
                 <tbody>
                     @foreach ($users as $user)
                         <tr>
-                            <th scope="row">{{$user->id}}</th>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->role}}</td>
+                            <th scope="row">{{ $user->id }}</th>
+                            <td>{{ $user->name }}</td>
+                            <td>
+                                @foreach ($roles as $role)
+                                    @if ($user->role == $role->id)
+                                        {{ $role->name }}
+                                    @endif
+                                @endforeach
+                            </td>
                             <td>
                                 <div class="btn-group row ">
-                                    <div class="ml-3">
-                                        <form action="#" method="post">
+                                    <div class="ml-3 ">
+                                        <form action="" method="get">
+                                            @csrf
+                                            <button type="submit" class="border-0 bg-dark ">
+                                                <i class="fas fa-pen"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="ml-1">
+                                        <form action="" method="post">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="border-0 bg-dark ">
@@ -42,4 +57,4 @@
 @endsection
 
 
-{{$user->role}}
+{{ $user->role }}

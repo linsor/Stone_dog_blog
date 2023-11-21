@@ -12,8 +12,8 @@ class AdminEditUserController extends Controller
     public function __invoke($id) {
 
         $user = User::find($id);
-        $role = Role::find();
+        $roles = Role::all();
 
-        /*Продолжаем */
+        return view("user.edit", compact("user","roles"));
     }
 }

@@ -26,7 +26,7 @@ class AdminMiddleware
     
     elseif ($role !== 'admin') 
     {
-      return redirect()->route('main.index');
+      return redirect()->route('post.index');
     }
 
     return $next($request);

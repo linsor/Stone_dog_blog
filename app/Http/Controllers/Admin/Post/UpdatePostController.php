@@ -30,6 +30,7 @@ class UpdatePostController extends BaseController
         }
 
 
+
         $post->update($data);
         $post->tags()->sync($tags);
 

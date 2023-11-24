@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Main;
+namespace App\Http\Controllers\Main\Post;
 
 
 use App\Models\Game;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use App\Http\Controllers\Main\BaseController;
+use App\Http\Controllers\Controller;
 use App\Models\Post;
-use App\Models\Role;
-use App\Models\User;
 
-class IndexPostController extends BaseController
+
+class IndexPostController extends Controller
 {
     public function __invoke()
     {

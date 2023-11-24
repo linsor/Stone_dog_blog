@@ -13,7 +13,9 @@ class ShowTestController extends BaseController
 {
     public function __invoke($id) {
         $user = User::find($id);
-        $accessories = Accessories::find($id);
+        $accessories = Accessories::where('user_id', '=', $id)->first();
+
+
 
         return view('Test.show', compact('user','accessories'));
        

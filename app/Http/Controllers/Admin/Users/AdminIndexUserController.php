@@ -14,6 +14,6 @@ class AdminIndexUserController extends Controller
         $users = User::all();
         $roles = Role::all();
 
-        return view("user.index", compact("users","roles"));
+        return view("user.admin.index", compact("users","roles"));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Post;
 
 use App\Http\Controllers\Main\BaseController;
 use App\Http\Requests\Post\UpdateRequest;
@@ -28,6 +28,7 @@ class UpdatePostController extends BaseController
 
             $data['PostImage'] = Storage::disk('public')->put('images/post', $data['PostImage']);
         }
+
 
 
         $post->update($data);

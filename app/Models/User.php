@@ -20,6 +20,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(Accessories::class);
     }
+
+    public function role () {
+
+        return $this->belongsTo(Role::class, "role", "id");
+
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -29,6 +35,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**

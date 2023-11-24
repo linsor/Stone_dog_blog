@@ -24,11 +24,11 @@ class UpdateRequest extends FormRequest
         return [
             'name'=> 'nullable|string',
             'UserAvatar' => 'nullable|string',
-            'role' => 'string',
+            'role' => 'integer',
             'email' => 'nullable|string',
             'password' => 'nullable|string',
             'processor' => 'nullable|string',
-            'videocard' => 'nullable|string',
+            'videocard' => 'nullable|string'
 
         ];
     }

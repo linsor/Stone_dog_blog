@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use App\Http\Controllers\Main\BaseController;
 use App\Models\Post;
+use App\Models\Role;
+use App\Models\User;
 
 class IndexPostController extends BaseController
 {

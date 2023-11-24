@@ -16,15 +16,18 @@ class AdminMiddleware
    */
   public function handle(Request $request, Closure $next): Response
   {
-    $user = auth()->user();
-    $role = Role::find($user->role)->name;
 
     if (!auth()->check()) 
     {
       return redirect()->route('home');
     } 
     
-    elseif ($role !== 'admin') 
+    $user = auth()->user();
+    $role = Role::find($user->role)->name;
+
+   
+    
+    if ($role !== 'admin') 
     {
       return redirect()->route('post.index');
     }

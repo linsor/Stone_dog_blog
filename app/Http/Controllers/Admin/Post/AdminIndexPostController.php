@@ -4,10 +4,10 @@ namespace App\Http\Controllers\admin\Post;
 
 
 use App\Models\Game;
-use App\Http\Controllers\Main\BaseController;
+use App\Http\Controllers\Controller;
 use App\Models\Post;
 
-class AdminIndexPostController extends BaseController
+class AdminIndexPostController extends Controller
 {
     public function __invoke()
     {

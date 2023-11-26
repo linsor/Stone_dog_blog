@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin\Users;
 
 
-use App\Http\Controllers\Main\BaseController;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 
-class AdminDeleteUserController extends BaseController
+class AdminDeleteUserController extends Controller
 {
     public function __invoke(User $user)
     {

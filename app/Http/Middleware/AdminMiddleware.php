@@ -24,10 +24,8 @@ class AdminMiddleware
     
     $user = auth()->user();
     $role = Role::find($user->role)->name;
-
-   
     
-    if ($role !== 'admin') 
+    if ($role !== 'admin' and $role !== 'moder') 
     {
       return redirect()->route('post.index');
     }

@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
-use App\Models\User;
+use Illuminate\Support\Facades\Gate;
 use App\Policies\AdminPolicy;
+use App\Policies\ModeratorPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -15,14 +16,17 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        User::class => AdminPolicy::class,
+
+
     ];
+
 
     /**
      * Register any authentication / authorization services.
      */
     public function boot(): void
     {
-        //
+        Gate::define('view-admin', [AdminPolicy::class, 'view']);
+        Gate::define('view-moderator', [ModeratorPolicy::class, 'view']);
     }
 }

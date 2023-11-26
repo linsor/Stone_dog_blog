@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\Post\UpdatePostController;
 use App\Http\Controllers\Main\Post\IndexPostController;
 use App\Http\Controllers\Main\Post\ShowPostController;
 use App\Http\Controllers\Main\User\ShowUserController;
+use App\Http\Controllers\Main\User\UpdateUserController;
 use App\Http\Controllers\Test\EditTestController;
 use App\Http\Controllers\Test\IndexTestController;
 use App\Http\Controllers\Test\ShowTestController;
@@ -44,6 +45,7 @@ Route::group(['namespace' => 'Main'], function () {
     });
     Route::group(['namespace' => 'User'], function () {
         Route::get('/profile', [ShowUserController::class, '__invoke'])->name("profile.show");
+        Route::patch('/profile/{user}', [UpdateUserController::class, '__invoke'])->name('user.update');
         
     });
 
@@ -78,5 +80,5 @@ Route::group(['namespace' => 'Test', 'middleware' => 'admin'], function () {
 });
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

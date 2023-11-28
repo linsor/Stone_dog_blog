@@ -12,7 +12,6 @@ class UpdatePostController extends Controller
 {
     public function __invoke(UpdateRequest $request, $id)
     {
-
         $post = Post::findOrFail($id);
 
         $data = [
@@ -28,8 +27,6 @@ class UpdatePostController extends Controller
 
             $data['PostImage'] = Storage::disk('public')->put('images/post', $data['PostImage']);
         }
-
-
 
         $post->update($data);
         $post->tags()->sync($tags);

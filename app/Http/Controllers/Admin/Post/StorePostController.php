@@ -19,7 +19,6 @@ class StorePostController extends Controller
             'Author' => Auth::user()->id,
         ];
 
-
         $data += $request->validated();
 
         $tags = $data['tags'];
@@ -29,7 +28,6 @@ class StorePostController extends Controller
 
             $data['PostImage'] = Storage::disk('public')->put('images/post', $data['PostImage']);
         }
-
 
         $post = Post::Create($data);
         $post->tags()->attach($tags);

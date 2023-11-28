@@ -12,10 +12,10 @@ use App\Http\Controllers\admin\Post\AdminIndexPostController;
 use App\Http\Controllers\Admin\Post\AdminShowPostController;
 use App\Http\Controllers\Admin\Post\StorePostController;
 use App\Http\Controllers\Admin\Post\UpdatePostController;
-use App\Http\Controllers\Main\CreatePostController;
-use App\Http\Controllers\Main\EditPostController;
-use App\Http\Controllers\Main\IndexPostController;
-use App\Http\Controllers\Main\ShowPostController;
+use App\Http\Controllers\Main\Post\IndexPostController;
+use App\Http\Controllers\Main\Post\ShowPostController;
+use App\Http\Controllers\Main\User\ShowUserController;
+use App\Http\Controllers\Main\User\UpdateUserController;
 use App\Http\Controllers\Test\EditTestController;
 use App\Http\Controllers\Test\IndexTestController;
 use App\Http\Controllers\Test\ShowTestController;
@@ -37,15 +37,17 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::group(['namespace' => 'Main', 'middleware' => 'admin'], function () {
-    Route::get('/post/create', [CreatePostController::class, '__invoke'])->name('post.create');
-
-
-});
 
 Route::group(['namespace' => 'Main'], function () {
-    Route::get('/', [IndexPostController::class, '__invoke'])->name("post.index");
-    Route::get('/post/{post}', [ShowPostController::class, '__invoke'])->name('post.show');
+    Route::group(['namespace' => 'Post'], function () {
+        Route::get('/', [IndexPostController::class, '__invoke'])->name("post.index");
+        Route::get('/post/{post}', [ShowPostController::class, '__invoke'])->name('post.show');
+    });
+    Route::group(['namespace' => 'User'], function () {
+        Route::get('/profile', [ShowUserController::class, '__invoke'])->name("profile.show");
+        Route::patch('/profile/{user}', [UpdateUserController::class, '__invoke'])->name('user.update');
+        
+    });
 
 });
 

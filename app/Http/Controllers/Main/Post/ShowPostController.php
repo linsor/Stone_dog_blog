@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Main;
+namespace App\Http\Controllers\Main\Post;
 
-use App\Http\Controllers\Main\BaseController;
+use App\Http\Controllers\Controller;
 use App\Models\Game;
 use App\Models\Post;
 
 
 
 
-class ShowPostController extends BaseController
+class ShowPostController extends Controller
 {
     public function __invoke($id)
     {

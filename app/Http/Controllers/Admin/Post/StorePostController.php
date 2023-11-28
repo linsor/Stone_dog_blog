@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Admin\Post;
 
-use App\Http\Controllers\Main\BaseController;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StoreRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class StorePostController extends BaseController
+class StorePostController extends Controller
 {
     public function __invoke(StoreRequest $request)
     {
@@ -19,7 +19,6 @@ class StorePostController extends BaseController
             'Author' => Auth::user()->id,
         ];
 
-
         $data += $request->validated();
 
         $tags = $data['tags'];
@@ -29,7 +28,6 @@ class StorePostController extends BaseController
 
             $data['PostImage'] = Storage::disk('public')->put('images/post', $data['PostImage']);
         }
-
 
         $post = Post::Create($data);
         $post->tags()->attach($tags);

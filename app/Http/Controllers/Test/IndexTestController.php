@@ -11,8 +11,6 @@ class IndexTestController extends BaseController
     public function __invoke() {
         
         $users = User::all();
-
-        dd(auth());
         return view('Test.index', compact('users'));
     }
 }

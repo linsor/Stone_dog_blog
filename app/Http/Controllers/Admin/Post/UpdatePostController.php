@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Admin\Post;
 
-use App\Http\Controllers\Main\BaseController;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\UpdateRequest;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class UpdatePostController extends BaseController
+class UpdatePostController extends Controller
 {
     public function __invoke(UpdateRequest $request, $id)
     {
-
         $post = Post::findOrFail($id);
 
         $data = [
@@ -28,8 +27,6 @@ class UpdatePostController extends BaseController
 
             $data['PostImage'] = Storage::disk('public')->put('images/post', $data['PostImage']);
         }
-
-
 
         $post->update($data);
         $post->tags()->sync($tags);

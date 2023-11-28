@@ -310,9 +310,9 @@
             document.querySelectorAll('.role-select').forEach(function(select) {
                 select.addEventListener('change', function() {
                     // Получаем id пользователя из data-атрибута
-                    var userId = this.getAttribute('data-user-id');
+                    let userId = this.getAttribute('data-user-id');
                     // Получаем выбранное значение роли
-                    var selectedRole = this.value;
+                    let selectedRole = this.value;
                     // Устанавливаем значение в скрытом поле
                     document.getElementById('role' + userId).value = selectedRole;
                     // Отправляем форму с соответствующим id

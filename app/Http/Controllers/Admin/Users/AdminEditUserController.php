@@ -14,6 +14,6 @@ class AdminEditUserController extends Controller
         $user = User::find($id);
         $roles = Role::all();
 
-        return view("user.edit", compact("user","roles"));
+        return view("user.admin.edit", compact("user","roles"));
     }
 }

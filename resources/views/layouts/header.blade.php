@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div>
-        <img src="{{ asset('storage/images/logo/logo.png') }}" alt="ЛОГО" class="logo" width="60" height="60">
+        <a href="{{ route('post.index') }}"><img src="{{ asset('storage/images/logo/logo.png') }}" alt="ЛОГО"
+                class="logo" width="60" height="60"></a>
     </div>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
@@ -9,20 +10,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item mr-2">
-                <a class="nav-link" href="#">Главная</a>
-            </li>
+            @can('view-moderator', auth()->user())
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="{{ route('admin.post.index') }}">Модератор</a>
+                </li>
+            @endcan
+
+            @can('view-admin', auth()->user())
+                <li class="nav-item mr-2">
+                    <a class="nav-link" href="{{ route('admin.post.index') }}">Админ</a>
+                </li>
+            @endcan
             <li class="nav-item mr-2">
                 <a class="nav-link" href="#">О нас</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Контакты</a>
             </li>
-            @can('view', auth()->user())
-                <li class="nav-item mr-2">
-                    <a class="nav-link" href="{{ route('admin.post.index') }}">Админ</a>
-                </li>
-            @endcan
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('profile.show') }}">Профиль</a>
+            </li>
         </ul>
     </div>
 </nav>

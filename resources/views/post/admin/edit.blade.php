@@ -61,8 +61,7 @@
                 <button type="submit" class="btn btn-primary mb-3">Edit</button>
             </form>
             <div>
-                <div>
-                    <a href="{{ route('admin.post.index') }}" class="btn btn-primary mb-3">Back</a>
+                <div> <a href="{{ route('admin.post.index') }}" class="btn btn-primary mb-3">Back</a>
                 </div>
             </div>
         </div>

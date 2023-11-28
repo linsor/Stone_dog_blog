@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Role;
 use Illuminate\Auth\Access\Response;
 
-class AdminPolicy
+class ModeratorPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -24,7 +24,7 @@ class AdminPolicy
         $user = auth()->user();
         $role = Role::find($user->role)->name;
 
-        return $role === "admin";
+        return $role === "moder";
     }
 
     /**

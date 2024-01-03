@@ -7,14 +7,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 
 
-class DeletePostController extends Controller
-{
-    public function __invoke(Post $post)
+    class DeletePostController extends Controller
     {
-        $post->tags()->detach();
-        
-        $post->delete();
-        return redirect()->route('admin.post.index');
+        public function __invoke(Post $post)
+        {
+            $post->tags()->detach();
+            
+            $post->delete();
+            return redirect()->route('admin.post.index');
+        }
     }
-}
 

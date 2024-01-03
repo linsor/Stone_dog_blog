@@ -21,6 +21,7 @@ class StorePostController extends Controller
 
         $data += $request->validated();
 
+
         $tags = $data['tags'];
         unset($data['tags']);
 

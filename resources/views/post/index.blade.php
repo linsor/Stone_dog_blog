@@ -3,12 +3,12 @@
 @section('content')
     <div class="container">
         <div class="row">
-            @foreach ($posts as $post)
-                <div class="card mb-3" style="max-width: 540px;">
-                    <a href="{{ route('post.show', $post->id) }}">
+            @foreach ($posts as $post)  
+                <div class="card mb-3 mt-3 ml-3 bg-dark" style="max-width: 550px; height: 200px;" >
+                    <a href="{{ route('post.show', $post->id) }}" class=" text-decoration-none text-white">
                         <div class="row g-0 md-3">
                             <div class="col-md-4">
-                                <img src="{{asset('storage/' . $post->PostImage)}}" class="img-fluid rounded-start" alt="...">
+                                <img src="{{asset('storage/' . $post->PostImage)}}" style="max-width: 150px;" class="img-fluid rounded-start mt-2 ml-2"  alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">

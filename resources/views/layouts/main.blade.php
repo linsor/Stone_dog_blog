@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 @include('layouts.head')
-<body>
+<body  class="bg-light">
    @include('layouts.header')
  {{--  @include('layouts.body')  --}}
     @yield('content')

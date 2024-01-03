@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\Users\AdminUpdateUserController;
 use App\Http\Controllers\Admin\Post\DeletePostController;
 use App\Http\Controllers\Admin\Post\AdminCreatePostController;
 use App\Http\Controllers\Admin\Post\AdminEditPostController;
-use App\Http\Controllers\admin\Post\AdminIndexPostController;
+use App\Http\Controllers\Admin\Post\AdminIndexPostController;
 use App\Http\Controllers\Admin\Post\AdminShowPostController;
 use App\Http\Controllers\Admin\Post\StorePostController;
 use App\Http\Controllers\Admin\Post\UpdatePostController;
@@ -73,10 +73,10 @@ Route::group(['namespace' => 'Admin', 'middleware' => 'admin'], function () {
 
 Route::group(['namespace' => 'Test', 'middleware' => 'admin'], function () {
     Route::get('/test', [IndexTestController::class, '__invoke'])->name('test.index');
-    Route::get('/test/{accessories}', [ShowTestController::class, '__invoke'])->name('test.show');
+    Route::get('/test/{acces~sories}', [ShowTestController::class, '__invoke'])->name('test.show');
     Route::get('/test/{post}/edit', [EditTestController::class, '__invoke'])->name('test.edit');
     Route::patch('/test/{post}', [UpdateTestController::class, '__invoke'])->name('test.update');
-    // Route::delete('/posts/{post}', [DeleteController::class, '__invoke'])->name('post.delete');
+    
 });
 Auth::routes();
 

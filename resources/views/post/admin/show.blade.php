@@ -1,14 +1,20 @@
-@extends('layouts.admin')
+@extends('layouts.main')
 @section('content')
-    <div class="container">
-        <div>
-            <img src="{{ asset('storage/' . $post->PostImage) }} " style="max-width: 100px">
+    <div class="container mt-3 ">
+        <div class="col-md-8 mx-auto">
+            <img src="{{asset('storage/' . $post->PostImage) }} " style="max-width: 700px">
         </div>
+        <div class="mt-3">
+            <div>
+                <h1>{{ $post->NamePost }}</h1>
 
-        <h5>{{ $post->NamePost }}</h5>
 
-        {!! $post->Content !!}
-
+            </div>
+            <div>
+                {!! $post->Content !!}
+            </div>
+        </div>
+        
         <div>
             <small class="text-body-secondary">
                 @foreach ($games as $game)
@@ -33,18 +39,5 @@
             </small>
         </div>
 
-
-
-        <div>
-            <form action="{{ route('post.delete', $post->id) }}" method="post">
-                @csrf
-                @method('delete')
-                <input type="submit" value="Delete" class="btn btn-primary">
-            </form>
-        </div>
-        <div>
-            <a href="{{ route('admin.post.edit', $post->id) }}" class="btn btn-primary row mx-0 mt-2">
-                Edit
-            </a>
-        </div>
-    @endsection
+    </div>
+@endsection

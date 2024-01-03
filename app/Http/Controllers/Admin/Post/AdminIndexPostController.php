@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin\Post;
+namespace App\Http\Controllers\Admin\Post;
 
 
 use App\Models\Game;

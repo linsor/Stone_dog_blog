@@ -19,8 +19,9 @@ class ShowPostController extends Controller
         $tags = $post->tags;
 
 
+
         try {
-            var_dump('На вашей конфигурации игра пойдет с таким FPS: ' . $this->parsePostostGavna());
+            var_dump("На вашей конфигурации игра пойдет с таким FPS: {$this->parsePostostGavna()}");
         } catch (\Exception $e) {
             var_dump($e->getMessage());
         }
@@ -90,9 +91,7 @@ class ShowPostController extends Controller
 
         $xpath = new DOMXPath($dom);
 
-        $element = $xpath->query('//span[@class="bl_med_val_329_888"]')->item(0);
-
-        
+        $element = $xpath->query("//span[@class='bl_med_val_329_888']")->item(0);
 
         if ($element) {
             $parsedValue = $element->nodeValue;
@@ -106,16 +105,19 @@ class ShowPostController extends Controller
 
             foreach ($options as $option) {
                 $values[] = $option->getAttribute('value');
+                $game = Game::updateOrCreate([
+                    'valueId' => $option->getAttribute('value'),
+                    'GameName' => substr($option->textContent, 6)
+                ]);
             }
 
         }
+
 
             return $parsedValue;
         } else { 
             throw new \Exception('Serched element not found!');
         }
-
-        
 
     }
 }

@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\Users\AdminUpdateUserController;
 use App\Http\Controllers\Admin\Post\DeletePostController;
 use App\Http\Controllers\Admin\Post\AdminCreatePostController;
 use App\Http\Controllers\Admin\Post\AdminEditPostController;
-use App\Http\Controllers\admin\Post\AdminIndexPostController;
+use App\Http\Controllers\Admin\Post\AdminIndexPostController;
 use App\Http\Controllers\Admin\Post\AdminShowPostController;
 use App\Http\Controllers\Admin\Post\StorePostController;
 use App\Http\Controllers\Admin\Post\UpdatePostController;

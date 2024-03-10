@@ -21,7 +21,7 @@ class PostFactory extends Factory
             'Content' => $this->faker->text,
             'date' => now(),
             'likes' => $this->faker->randomNumber(1, 50),
-            'PostImage' => $this->faker->imageUrl,
+            'PostImage' => 'images/logo/logo.png',
             'Author' => '1',
             'category_id' => $this->faker->randomNumber(1, 3),
         ];
